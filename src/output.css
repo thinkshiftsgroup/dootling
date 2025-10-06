@@ -610,6 +610,9 @@
   .h-100 {
     height: calc(var(--spacing) * 100);
   }
+  .h-\[0px\] {
+    height: 0px;
+  }
   .h-\[3px\] {
     height: 3px;
   }
@@ -624,6 +627,9 @@
   }
   .h-\[350px\] {
     height: 350px;
+  }
+  .h-\[400px\] {
+    height: 400px;
   }
   .h-auto {
     height: auto;
