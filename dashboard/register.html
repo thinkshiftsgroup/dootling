@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialV - Connect With The World</title>
+    <meta name="description" content="Join SocialV to connect with the social world. Create your account and start building meaningful connections today.">
+    
+    <!-- Tailwind CSS CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+     
+    <link href="./../src/output.css" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --gradient-blue-start: #0ea5e9;
+            --gradient-blue-mid: #38bdf8;
+            --gradient-blue-end: #60a5fa;
+        }
+
+        /* Custom Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--gradient-blue-start) 0%, var(--gradient-blue-mid) 50%, var(--gradient-blue-end) 100%);
+        }
+
+        /* Smooth Transitions */
+        * {
+            transition: all 0.2s ease;
+        }
+
+        /* Input Focus States */
+        input:focus, 
+        input[type="checkbox"]:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        /* Button Hover Effect */
+        .btn-primary {
+            background-color: #0ea5e9;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary:hover {
+            background-color: #0284c7;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Checkbox Custom Style */
+        .custom-checkbox {
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+            accent-color: #0ea5e9;
+        }
+
+        /* Link Styles */
+        .link {
+            color: #0ea5e9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        /* Error Message Style */
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Input Error State */
+        .input-error {
+            border-color: #ef4444 !important;
+        }
+
+        /* Backdrop Blur for Image Container */
+        .backdrop-blur {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Image */
+        .illustration-container {
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+
+        /* Logo Animation */
+        .logo-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Form Animation */
+        .form-container {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="m-0 p-0 font-sans antialiased">
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        <!-- Left Panel - Blue Gradient -->
+        <div class="w-full lg:w-1/2 gradient-bg flex items-center justify-center p-8 lg:p-16">
+            <div class="illustration-container w-full text-center space-y-6">
+                <div class="backdrop-blur rounded-2xl p-8 lg:p-12 shadow-2xl">
+                    <img 
+                        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1024&q=80" 
+                        alt="Connect with the world illustration" 
+                        class="w-full h-auto rounded-lg"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="text-white space-y-4">
+                    <h1 class="text-3xl lg:text-4xl font-bold">
+                        Connect With The World
+                    </h1>
+                    <p class="text-white/90 text-base lg:text-lg leading-relaxed">
+                        It is a long established fact that a reader will be distracted by the readable content.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Form -->
+        <div class="w-full lg:w-1/2 bg-white flex items-center justify-center p-8 lg:p-16">
+            <div class="max-w-md w-full space-y-8 form-container">
+                <!-- Logo Section -->
+                <div class="text-center space-y-4">
+                    <div class="flex items-center justify-center gap-3">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 40 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="text-sky-500 logo-icon"
+                        >
+                            <path
+                                d="M20 5L5 13.09V26.91L20 35L35 26.91V13.09L20 5Z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                fill="none"
+                            />
+                            <path
+                                d="M20 5V20M20 20L5 13.09M20 20L35 13.09M20 20V35"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        <span class="text-2xl font-bold text-gray-900">SocialV</span>
+                    </div>
+                    <p class="text-gray-600 text-sm lg:text-base">
+                        Welcome to socialV, a platform to connect with the social world
+                    </p>
+                </div>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="space-y-6 w-full" novalidate>
+                    <!-- Full Name Field -->
+                    <div>
+                        <label for="fullName" class="block text-gray-900 font-medium mb-2">
+                            Your Full Name
+                        </label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="marvin shaw"
+                            class="w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400"
+                            required
+                            minlength="2"
+                            maxlength="100"
+                        />
+                        <span class="error-message" id="fullNameError">Full name must be at least 2 characters</span>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-gray-900 font-medium mb-2">
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="marvin@example.com"
+                            class="w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400"
+                            required
+                            maxlength="255"
+                        />
+                        <span class="error-message" id="emailError">Please enter a valid email address</span>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-gray-900 font-medium mb-2">
+                            Your Password
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="••••••"
+                            class="w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400"
+                            required
+                            minlength="6"
+                            maxlength="100"
+                        />
+                        <span class="error-message" id="passwordError">Password must be at least 6 characters</span>
+                    </div>
+
+                    <!-- Terms Checkbox -->
+                    <div class="flex items-start space-x-3">
+                        <input
+                            type="checkbox"
+                            id="acceptTerms"
+                            name="acceptTerms"
+                            class="custom-checkbox mt-1"
+                            required
+                        />
+                        <label for="acceptTerms" class="text-sm text-gray-900">
+                            I Accept 
+                            <a href="terms.html" class="link">Terms And Conditions</a>
+                        </label>
+                    </div>
+                    <span class="error-message" id="termsError">You must accept the terms and conditions</span>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-primary" id="submitBtn">
+                        SIGN UP
+                    </button>
+
+                    <!-- Login Link -->
+                    <p class="text-center text-gray-900">
+                        Already Have An Account? 
+                        <a href="login.html" class="link">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form Validation and Submission
+        const form = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        // Input fields
+        const fullNameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const termsCheckbox = document.getElementById('acceptTerms');
+        
+        // Error messages
+        const fullNameError = document.getElementById('fullNameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const termsError = document.getElementById('termsError');
+
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Validation functions
+        function validateFullName() {
+            const value = fullNameInput.value.trim();
+            if (value.length < 2) {
+                fullNameInput.classList.add('input-error');
+                fullNameError.classList.add('show');
+                return false;
+            }
+            fullNameInput.classList.remove('input-error');
+            fullNameError.classList.remove('show');
+            return true;
+        }
+
+        function validateEmail() {
+            const value = emailInput.value.trim();
+            if (!emailRegex.test(value)) {
+                emailInput.classList.add('input-error');
+                emailError.classList.add('show');
+                return false;
+            }
+            emailInput.classList.remove('input-error');
+            emailError.classList.remove('show');
+            return true;
+        }
+
+        function validatePassword() {
+            const value = passwordInput.value;
+            if (value.length < 6) {
+                passwordInput.classList.add('input-error');
+                passwordError.classList.add('show');
+                return false;
+            }
+            passwordInput.classList.remove('input-error');
+            passwordError.classList.remove('show');
+            return true;
+        }
+
+        function validateTerms() {
+            if (!termsCheckbox.checked) {
+                termsError.classList.add('show');
+                return false;
+            }
+            termsError.classList.remove('show');
+            return true;
+        }
+
+        // Real-time validation
+        fullNameInput.addEventListener('blur', validateFullName);
+        emailInput.addEventListener('blur', validateEmail);
+        passwordInput.addEventListener('blur', validatePassword);
+        termsCheckbox.addEventListener('change', validateTerms);
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate all fields
+            const isFullNameValid = validateFullName();
+            const isEmailValid = validateEmail();
+            const isPasswordValid = validatePassword();
+            const isTermsValid = validateTerms();
+
+            if (isFullNameValid && isEmailValid && isPasswordValid && isTermsValid) {
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'SIGNING UP...';
+
+                // Get form data
+                const formData = {
+                    fullName: fullNameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    password: passwordInput.value,
+                    acceptTerms: termsCheckbox.checked
+                };
+
+                // Simulate API call
+                setTimeout(() => {
+                    console.log('Form submitted successfully:', formData);
+                    alert('Account created successfully! Welcome to SocialV.');
+                    
+                    // Reset form
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'SIGN UP';
+                }, 1500);
+            }
+        });
+
+        // Prevent form submission on Enter key in input fields (except submit button)
+        form.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
